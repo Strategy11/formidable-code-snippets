@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * Use your forms to create downloads in Easy Digital Downloads.
+ */
 add_filter('frm_new_post', 'edd_setup_files', 10, 2);
 function edd_setup_files($post, $args) {
 	if ( $args['form']->id != 5 ) { //change 5 to the ID of your form
@@ -19,7 +21,9 @@ function edd_setup_files($post, $args) {
 			$edd_files[] = array(
 				'file'      => wp_get_attachment_url( $id ),
 				'condition' => '',
-				'name'      => basename( $attachment->guid ), // change this line to get the name you want
+
+				// change this line to get the name you want
+				'name'      => basename( $attachment->guid ),
 			);
 		}
 	}
